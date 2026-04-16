@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certifications & Skills — Vishnu Rajan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root { --bg:#0e0e0e; --bg2:#161616; --bg3:#1e1e1e; --white:#ffffff; --off:#ebebeb; --muted:#888; --dim:#444; --border:rgba(255,255,255,0.09); --border2:rgba(255,255,255,0.18); }
+    html, body { height:100%; }
+    body { background:var(--bg); color:var(--off); font-family:'Inter',sans-serif; overflow-x:hidden; cursor:none; }
+
+    #cur  { width:8px; height:8px; border-radius:50%; background:#fff; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform 0.1s; }
+    #ring { width:32px; height:32px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); position:fixed; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left 0.12s ease-out, top 0.12s ease-out, width 0.25s, height 0.25s; }
+
+    header {
+      position:fixed; top:0; left:0; right:0; z-index:400;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.5rem 3.5rem;
+      background:rgba(14,14,14,0.88); backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--border);
+    }
+    .hd-left h1 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--white); }
+    .hd-left span { font-size:0.68rem; color:var(--muted); font-weight:300; margin-top:2px; display:block; letter-spacing:0.06em; }
+    .hd-right { display:flex; gap:2.5rem; align-items:center; }
+    .hd-right a { font-size:0.72rem; color:var(--muted); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; transition:color 0.2s; }
+    .hd-right a:hover { color:var(--white); }
+    .btn-back { border:1px solid var(--border2); color:var(--off); font-size:0.7rem; padding:0.55rem 1.4rem; text-decoration:none; border-radius:2px; display:inline-flex; align-items:center; gap:8px; transition:background 0.2s; cursor:none; }
+    .btn-back:hover { background:var(--bg3); color:var(--white); }
+
+    /* PAGE HERO */
+    .page-hero {
+      min-height:40vh; display:flex; flex-direction:column; justify-content:flex-end;
+      padding:9rem 3.5rem 4rem; border-bottom:1px solid var(--border);
+      position:relative; overflow:hidden;
+    }
+    .page-hero::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:radial-gradient(ellipse 50% 60% at 30% 50%, rgba(255,255,255,0.03) 0%, transparent 70%);
+    }
+    .ph-tag   { font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim); margin-bottom:0.8rem; }
+    .ph-title { font-family:'Playfair Display',serif; font-size:clamp(3rem,7vw,6rem); font-weight:900; color:var(--white); line-height:0.95; letter-spacing:-0.035em; }
+    .ph-title em { font-style:italic; font-weight:400; }
+    .ph-sub   { font-size:0.9rem; color:var(--muted); font-weight:300; margin-top:1.5rem; max-width:480px; line-height:1.7; }
+
+    /* MAIN CONTENT */
+    .page-wrap { max-width:1060px; margin:0 auto; padding:6rem 3.5rem; }
+
+    /* SKILLS SECTION */
+    .sk-section { margin-bottom:6rem; }
+    .sk-eyebrow { font-size:0.63rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim); margin-bottom:0.7rem; }
+    .sk-head { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3vw,2.4rem); font-weight:700; color:var(--white); letter-spacing:-0.02em; margin-bottom:2.5rem; }
+    .sk-head em { font-style:italic; font-weight:400; }
+
+    .sk-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; }
+    .sg h4 { font-size:0.63rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim); margin-bottom:1.4rem; }
+    .skl { margin-bottom:1.2rem; }
+    .skl-top { display:flex; justify-content:space-between; margin-bottom:6px; }
+    .skl-n { font-size:0.85rem; color:var(--off); }
+    .skl-p { font-size:0.68rem; color:var(--dim); font-family:'Inter',monospace; }
+    .skl-bar { height:1px; background:var(--border2); }
+    .skl-fill { height:100%; background:var(--white); transform-origin:left; animation:bfill 1.5s ease forwards; }
+    @keyframes bfill { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+    .tool-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:0.5rem; }
+    .ttag { font-size:0.68rem; color:var(--muted); border:1px solid var(--border); padding:5px 12px; border-radius:2px; letter-spacing:0.04em; transition:border-color 0.2s, color 0.2s; }
+    .ttag:hover { border-color:var(--border2); color:var(--off); }
+
+    /* CERT SECTION */
+    .cert-section { }
+    .cert-count { font-family:'Playfair Display',serif; font-size:4rem; font-weight:900; color:var(--white); line-height:1; margin-bottom:0.3rem; }
+    .cert-lbl   { font-size:0.7rem; color:var(--dim); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:3rem; }
+
+    /* cert cards grid */
+    .cert-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:4rem; }
+    .cc {
+      background:var(--bg); padding:2rem 1.8rem;
+      position:relative; overflow:hidden;
+      transition:background 0.25s;
+      opacity:0; transform:translateY(16px);
+      transition:background 0.25s, opacity 0.65s ease, transform 0.65s ease;
+    }
+    .cc.on { opacity:1; transform:translateY(0); }
+    .cc:hover { background:var(--bg3); }
+    /* top scan line on hover */
+    .cc::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--white),transparent); transform:translateX(-100%); transition:transform 0.5s; }
+    .cc:hover::before { transform:translateX(100%); }
+    .cc-num  { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:rgba(255,255,255,0.06); line-height:1; position:absolute; top:1.2rem; right:1.4rem; }
+    .cc-org  { font-size:0.6rem; color:var(--dim); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.8rem; }
+    .cc-name { font-size:0.97rem; font-weight:500; color:var(--white); margin-bottom:0.35rem; line-height:1.35; }
+    .cc-iss  { font-size:0.76rem; color:var(--muted); margin-bottom:0.3rem; }
+    .cc-cat  { display:inline-block; font-size:0.6rem; color:var(--dim); border:1px solid var(--border); padding:3px 8px; border-radius:2px; letter-spacing:0.08em; margin-top:0.6rem; }
+
+    /* BOTTOM NAV */
+    .page-nav { border-top:1px solid var(--border); padding:2.5rem 3.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .pn-link { font-size:0.78rem; color:var(--muted); text-decoration:none; display:flex; align-items:center; gap:8px; transition:color 0.2s; letter-spacing:0.08em; }
+    .pn-link:hover { color:var(--white); }
+
+    footer { border-top:1px solid var(--border); padding:1.8rem 3.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .flogo  { font-family:'Playfair Display',serif; font-size:0.95rem; font-weight:700; color:var(--white); }
+    .fcopy  { font-size:0.68rem; color:var(--dim); }
+    .flinks { display:flex; gap:1.8rem; }
+    .flinks a { font-size:0.68rem; color:var(--dim); text-decoration:none; transition:color 0.2s; }
+    .flinks a:hover { color:var(--off); }
+
+    .rv { opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .rv.on { opacity:1; transform:translateY(0); }
+
+    @media(max-width:900px){
+      header { padding:1rem 1.5rem; }
+      .hd-right a:not(.btn-back) { display:none; }
+      .page-hero { padding:7rem 1.5rem 3rem; }
+      .page-wrap { padding:4rem 1.5rem; }
+      .sk-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .page-nav { padding:2rem 1.5rem; }
+      footer { padding:1.5rem; flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="ring"></div>
+
+<header>
+  <div class="hd-left">
+    <h1>Vishnu Rajan</h1>
+    <span>Network & IT Support Engineer</span>
+  </div>
+  <div class="hd-right">
+    <a href="index.html">Home</a>
+    <a href="experience.html">Experience</a>
+    <a href="index.html#contact-quick" class="btn-back">← Back</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <p class="ph-tag">04 — Credentials</p>
+  <h1 class="ph-title">Skills &amp;<br><em>Certifications.</em></h1>
+  <p class="ph-sub">Industry-recognised credentials and technical expertise across networking, cloud infrastructure, and cybersecurity.</p>
+</section>
+
+<div class="page-wrap">
+
+  <!-- SKILLS -->
+  <div class="sk-section rv">
+    <p class="sk-eyebrow">Technical Proficiency</p>
+    <h2 class="sk-head">Core <em>Skills</em></h2>
+    <div class="sk-grid">
+      <div>
+        <div class="sg">
+          <h4>Networking</h4>
+          <div class="skl"><div class="skl-top"><span class="skl-n">TCP/IP & Subnetting</span><span class="skl-p">90%</span></div><div class="skl-bar"><div class="skl-fill" style="width:90%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Routing & Switching (CCNA)</span><span class="skl-p">85%</span></div><div class="skl-bar"><div class="skl-fill" style="width:85%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Firewall & VPN Config</span><span class="skl-p">80%</span></div><div class="skl-bar"><div class="skl-fill" style="width:80%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Network Monitoring & SNMP</span><span class="skl-p">78%</span></div><div class="skl-bar"><div class="skl-fill" style="width:78%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">LAN / WAN Architecture</span><span class="skl-p">82%</span></div><div class="skl-bar"><div class="skl-fill" style="width:82%"></div></div></div>
+        </div>
+        <div class="sg" style="margin-top:2.5rem">
+          <h4>Systems & OS</h4>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Linux Administration</span><span class="skl-p">82%</span></div><div class="skl-bar"><div class="skl-fill" style="width:82%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Windows Server</span><span class="skl-p">85%</span></div><div class="skl-bar"><div class="skl-fill" style="width:85%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Active Directory & DNS</span><span class="skl-p">78%</span></div><div class="skl-bar"><div class="skl-fill" style="width:78%"></div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="sg">
+          <h4>Cloud & Security</h4>
+          <div class="skl"><div class="skl-top"><span class="skl-n">AWS Cloud Fundamentals</span><span class="skl-p">72%</span></div><div class="skl-bar"><div class="skl-fill" style="width:72%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Cybersecurity Essentials</span><span class="skl-p">75%</span></div><div class="skl-bar"><div class="skl-fill" style="width:75%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Network Security Policies</span><span class="skl-p">78%</span></div><div class="skl-bar"><div class="skl-fill" style="width:78%"></div></div></div>
+          <div class="skl"><div class="skl-top"><span class="skl-n">Incident Response</span><span class="skl-p">88%</span></div><div class="skl-bar"><div class="skl-fill" style="width:88%"></div></div></div>
+        </div>
+        <div class="sg" style="margin-top:2.5rem">
+          <h4>Tools & Technologies</h4>
+          <div class="tool-tags">
+            <span class="ttag">Cisco IOS</span><span class="ttag">Wireshark</span><span class="ttag">Nmap</span>
+            <span class="ttag">Kali Linux</span><span class="ttag">pfSense</span><span class="ttag">VMware</span>
+            <span class="ttag">VirtualBox</span><span class="ttag">Jira</span><span class="ttag">ServiceNow</span>
+            <span class="ttag">DHCP / DNS</span><span class="ttag">SSH / RDP</span><span class="ttag">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="cert-section rv">
+    <p class="sk-eyebrow">Credentials</p>
+    <h2 class="sk-head">Certifications</h2>
+    <div class="cert-count">10+</div>
+    <p class="cert-lbl">Industry-recognised certifications</p>
+
+    <div class="cert-grid">
+      <div class="cc"><div class="cc-num">01</div><div class="cc-org">Cisco</div><div class="cc-name">CCNA — Cisco Certified Network Associate</div><div class="cc-iss">Cisco Systems</div><div class="cc-cat">Networking</div></div>
+      <div class="cc"><div class="cc-num">02</div><div class="cc-org">Cisco</div><div class="cc-name">Advanced Diploma in Cyber Defense</div><div class="cc-iss">Cisco Networking Academy</div><div class="cc-cat">Cybersecurity</div></div>
+      <div class="cc"><div class="cc-num">03</div><div class="cc-org">Cisco</div><div class="cc-name">Networking Basics</div><div class="cc-iss">Cisco Networking Academy</div><div class="cc-cat">Core Networking</div></div>
+      <div class="cc"><div class="cc-num">04</div><div class="cc-org">Cisco</div><div class="cc-name">Network Defense Essentials</div><div class="cc-iss">Cisco Networking Academy</div><div class="cc-cat">Network Security</div></div>
+      <div class="cc"><div class="cc-num">05</div><div class="cc-org">AWS</div><div class="cc-name">AWS Cloud Practitioner Essentials</div><div class="cc-iss">Amazon Web Services</div><div class="cc-cat">Cloud Fundamentals</div></div>
+      <div class="cc"><div class="cc-num">06</div><div class="cc-org">Microsoft</div><div class="cc-name">Azure Fundamentals (AZ-900)</div><div class="cc-iss">Microsoft</div><div class="cc-cat">Cloud Infrastructure</div></div>
+      <div class="cc"><div class="cc-num">07</div><div class="cc-org">Google</div><div class="cc-name">IT Support Professional Certificate</div><div class="cc-iss">Google / Coursera</div><div class="cc-cat">IT Support & Sysadmin</div></div>
+      <div class="cc"><div class="cc-num">08</div><div class="cc-org">EC-Council</div><div class="cc-name">Kali Linux — Ethical Hacking</div><div class="cc-iss">EC-Council</div><div class="cc-cat">Ethical Hacking</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-nav">
+  <a href="experience.html" class="pn-link">← View Experience</a>
+  <a href="index.html" class="pn-link">Back to Home →</a>
+</div>
+
+<footer>
+  <div class="flogo">Vishnu Rajan</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="experience.html">Experience</a>
+    <a href="https://linkedin.com/in/vishnurajan01" target="_blank">LinkedIn</a>
+  </div>
+  <div class="fcopy">© 2026 · Network & IT Engineer · Trivandrum</div>
+</footer>
+
+<script>
+const dot=document.getElementById('cur'),ring=document.getElementById('ring');
+let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+(function l(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{dot.style.transform='translate(-50%,-50%) scale(2.2)';ring.style.width='44px';ring.style.height='44px';});
+  el.addEventListener('mouseleave',()=>{dot.style.transform='translate(-50%,-50%) scale(1)';ring.style.width='32px';ring.style.height='32px';});
+});
+const ro=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.rv,.cc').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

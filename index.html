@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Daya G Nair — Brand Strategist & BBA Student</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --ink: #1a1410;
+    --terracotta: #c0602a;
+    --gold: #b8922a;
+    --blush: #e8d5c4;
+    --muted: #7a6a5a;
+    --soft: #ede8df;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 10px; height: 10px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--terracotta);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.25s ease;
+    opacity: 0.6;
+  }
+  body:hover .cursor { opacity: 1; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.6rem 4rem;
+    mix-blend-mode: multiply;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 8rem 4rem 6rem;
+    position: relative; z-index: 2;
+  }
+
+  .hero-tag {
+    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--terracotta); margin-bottom: 1.4rem;
+    opacity: 0; animation: fadeUp 0.9s 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 7vw, 7rem);
+    font-weight: 300; line-height: 0.92;
+    color: var(--ink);
+    opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
+  }
+  .hero-name em { font-style: italic; color: var(--terracotta); }
+
+  .hero-sub {
+    margin-top: 2rem;
+    font-size: 0.9rem; line-height: 1.8;
+    color: var(--muted); max-width: 380px;
+    opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
+  }
+
+  .hero-cta {
+    margin-top: 3rem; display: flex; gap: 1.2rem; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; cursor: none;
+    transition: all 0.3s;
+  }
+  .btn-primary {
+    background: var(--ink); color: var(--cream);
+    border: 1.5px solid var(--ink);
+  }
+  .btn-primary:hover {
+    background: var(--terracotta); border-color: var(--terracotta);
+    transform: translateY(-2px);
+  }
+  .btn-outline {
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn-outline:hover {
+    background: var(--ink); color: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: var(--blush);
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 70% 30%, rgba(192,96,42,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(184,146,42,0.08) 0%, transparent 50%);
+  }
+  .hero-illustration {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-circle-bg {
+    width: 60vmin; height: 60vmin;
+    border-radius: 50%;
+    border: 1px solid rgba(192,96,42,0.2);
+    position: absolute;
+    animation: spinSlow 30s linear infinite;
+  }
+  .hero-circle-bg::before {
+    content: '';
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--terracotta);
+  }
+  .hero-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(8rem, 16vw, 16rem);
+    font-weight: 300; font-style: italic;
+    color: rgba(192,96,42,0.15);
+    user-select: none; letter-spacing: -0.05em;
+    animation: fadeIn 1.5s 0.3s forwards; opacity: 0;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    opacity: 0; animation: fadeIn 1s 1.5s forwards;
+  }
+  .hero-scroll span {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .scroll-line {
+    width: 1px; height: 40px; background: var(--muted);
+    animation: scrollDrop 1.5s ease-in-out infinite;
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 7rem 4rem; }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--terracotta); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1; max-width: 60px;
+    height: 1px; background: var(--terracotta);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 300; line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+  .section-title em { font-style: italic; color: var(--terracotta); }
+
+  /* ─── ABOUT ─── */
+  #about {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 5rem; align-items: center;
+    background: var(--soft);
+  }
+  .about-visual {
+    position: relative; aspect-ratio: 3/4; max-width: 360px;
+  }
+  .about-frame {
+    width: 100%; height: 100%;
+    background: var(--blush);
+    border: 1px solid rgba(192,96,42,0.2);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .about-frame-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14rem; font-weight: 300;
+    font-style: italic; color: rgba(192,96,42,0.18);
+    user-select: none;
+  }
+  .about-frame-tag {
+    position: absolute; bottom: 1.5rem; left: 1.5rem;
+    background: var(--ink); color: var(--cream);
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .about-accent {
+    position: absolute; top: -1.5rem; right: -1.5rem;
+    width: 120px; height: 120px;
+    border: 1px solid var(--terracotta); border-radius: 50%;
+  }
+  .about-accent-2 {
+    position: absolute; bottom: -1rem; left: -1rem;
+    width: 60px; height: 60px;
+    background: var(--terracotta); border-radius: 50%;
+    opacity: 0.15;
+  }
+  .about-text { max-width: 520px; }
+  .about-body {
+    font-size: 1rem; line-height: 1.9; color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+  .about-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .detail-item label {
+    display: block; font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.3rem;
+  }
+  .detail-item span { font-size: 0.9rem; color: var(--ink); }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--ink); }
+  #skills .section-label { color: var(--gold); }
+  #skills .section-label::after { background: var(--gold); }
+  #skills .section-title { color: var(--cream); }
+  #skills .section-title em { color: var(--gold); }
+
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5px; margin-top: 3.5rem;
+    background: rgba(255,255,255,0.05);
+  }
+  .skill-card {
+    padding: 2.5rem 2rem;
+    background: #211c16;
+    transition: background 0.3s;
+    cursor: none;
+  }
+  .skill-card:hover { background: #2d251d; }
+  .skill-icon {
+    font-size: 1.8rem; margin-bottom: 1.2rem;
+  }
+  .skill-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .skill-desc {
+    font-size: 0.8rem; color: rgba(245,240,232,0.4);
+    line-height: 1.7;
+  }
+
+  /* ─── INTERESTS ─── */
+  #interests {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 5rem; align-items: start;
+  }
+  .interests-list { margin-top: 2rem; }
+  .interest-item {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(26,20,16,0.1);
+    transition: padding-left 0.3s;
+    cursor: none;
+  }
+  .interest-item:hover { padding-left: 0.8rem; }
+  .interest-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem; color: var(--terracotta);
+    min-width: 24px;
+  }
+  .interest-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300;
+  }
+
+  .interests-quote {
+    padding: 3rem; background: var(--blush);
+    border-left: 3px solid var(--terracotta);
+    position: relative; margin-top: 2rem;
+  }
+  .interests-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-style: italic;
+    line-height: 1.6; color: var(--ink);
+  }
+  .interests-quote cite {
+    display: block; margin-top: 1.2rem;
+    font-size: 0.75rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted);
+    font-style: normal;
+  }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem; line-height: 0; color: rgba(192,96,42,0.15);
+    position: absolute; top: 1rem; right: 1.5rem;
+    font-style: italic;
+  }
+
+  /* ─── EDUCATION ─── */
+  #education { background: var(--soft); }
+  .edu-timeline { margin-top: 3rem; position: relative; }
+  .edu-timeline::before {
+    content: '';
+    position: absolute; left: 7px; top: 8px; bottom: 0;
+    width: 1px; background: rgba(192,96,42,0.2);
+  }
+  .edu-item {
+    display: grid; grid-template-columns: 40px 1fr;
+    gap: 1.5rem; margin-bottom: 3rem;
+  }
+  .edu-dot {
+    width: 15px; height: 15px; border-radius: 50%;
+    background: var(--cream); border: 2px solid var(--terracotta);
+    margin-top: 4px;
+  }
+  .edu-body {}
+  .edu-year {
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--terracotta);
+    margin-bottom: 0.4rem;
+  }
+  .edu-school {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; margin-bottom: 0.3rem;
+  }
+  .edu-degree { font-size: 0.85rem; color: var(--muted); }
+
+  /* ─── CONNECT ─── */
+  #connect {
+    background: var(--ink); text-align: center;
+    padding: 8rem 4rem;
+  }
+  #connect .section-label { justify-content: center; color: var(--gold); }
+  #connect .section-label::after { display: none; }
+  #connect .section-title { color: var(--cream); text-align: center; }
+  #connect .section-title em { color: var(--gold); }
+  .connect-sub {
+    color: rgba(245,240,232,0.5); max-width: 440px;
+    margin: 0 auto 3rem; line-height: 1.8; font-size: 0.95rem;
+  }
+  .connect-links {
+    display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .connect-link {
+    display: flex; align-items: center; gap: 0.7rem;
+    padding: 0.9rem 2rem;
+    font-size: 0.75rem; letter-spacing: 0.15em;
+    text-transform: uppercase; text-decoration: none;
+    border: 1px solid rgba(245,240,232,0.2);
+    color: var(--cream); transition: all 0.3s; cursor: none;
+  }
+  .connect-link:hover {
+    border-color: var(--gold); color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .connect-link svg { width: 16px; height: 16px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: #0f0c09;
+    font-size: 0.7rem; letter-spacing: 0.12em;
+    color: rgba(245,240,232,0.25); text-transform: uppercase;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); } to { transform: rotate(360deg); }
+  }
+  @keyframes scrollDrop {
+    0%, 100% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { height: 50vw; }
+    .hero-left { padding: 7rem 2rem 4rem; }
+    section { padding: 5rem 2rem; }
+    #about { grid-template-columns: 1fr; }
+    #interests { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Daya G Nair</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#interests">Interests</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Portfolio · BBA Student · Brand Strategist</p>
+    <h1 class="hero-name">
+      Daya<br><em>G Nair</em>
+    </h1>
+    <p class="hero-sub">
+      A creative and people-centred mind passionate about storytelling,
+      branding, and the psychology of human connection. Turning concepts
+      into campaigns that inspire.
+    </p>
+    <div class="hero-cta">
+      <a href="https://www.linkedin.com/in/daya-g-nair-0a6684340/" target="_blank" class="btn btn-primary">
+        View LinkedIn
+      </a>
+      <a href="#connect" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-illustration">
+      <div class="hero-circle-bg"></div>
+      <div class="hero-monogram">D</div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-frame">
+      <span class="about-frame-letter">D</span>
+      <span class="about-frame-tag">Kanyakumari, TN</span>
+    </div>
+    <div class="about-accent"></div>
+    <div class="about-accent-2"></div>
+  </div>
+  <div class="about-text">
+    <p class="section-label reveal">About Me</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      Creative mind,<br><em>human heart</em>
+    </h2>
+    <p class="about-body reveal reveal-delay-2">
+      I'm a BBA student with a creative and people-centred mindset, passionate about
+      storytelling, branding, and the psychology behind what connects people to ideas.
+      I love turning concepts into visuals, campaigns, and experiences that inspire others.
+      Curious, empathetic, and independent by nature — I'm exploring opportunities in
+      marketing, media, and brand strategy where creativity meets purpose.
+    </p>
+    <div class="about-details reveal reveal-delay-3">
+      <div class="detail-item">
+        <label>University</label>
+        <span>Vellore Institute of Technology</span>
+      </div>
+      <div class="detail-item">
+        <label>Degree</label>
+        <span>BBA (Bachelor of Business Administration)</span>
+      </div>
+      <div class="detail-item">
+        <label>Based In</label>
+        <span>Kanyakumari, Tamil Nadu</span>
+      </div>
+      <div class="detail-item">
+        <label>Focus Areas</label>
+        <span>Marketing · Branding · Media</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">Core Skills</p>
+  <h2 class="section-title reveal reveal-delay-1">
+    What I bring<br><em>to the table</em>
+  </h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon">🔄</div>
+      <h3 class="skill-name">Adaptability</h3>
+      <p class="skill-desc">Comfortable navigating ambiguity and shifting environments with a calm, solution-first mindset.</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-1">
+      <div class="skill-icon">🗣️</div>
+      <h3 class="skill-name">Communication</h3>
+      <p class="skill-desc">Articulate and persuasive across written, verbal, and visual channels — storytelling is at my core.</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-2">
+      <div class="skill-icon">🤝</div>
+      <h3 class="skill-name">Interpersonal</h3>
+      <p class="skill-desc">Building genuine connections, understanding people's motivations, and fostering collaborative energy.</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-3">
+      <div class="skill-icon">📣</div>
+      <h3 class="skill-name">Digital Marketing</h3>
+      <p class="skill-desc">Understanding of branding, content strategy, campaigns, and the digital landscape for modern audiences.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div>
+    <p class="section-label reveal">What Drives Me</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      Areas of<br><em>passion</em>
+    </h2>
+    <div class="interests-list">
+      <div class="interest-item reveal">
+        <span class="interest-num">01</span>
+        <span class="interest-name">Brand Strategy</span>
+      </div>
+      <div class="interest-item reveal reveal-delay-1">
+        <span class="interest-num">02</span>
+        <span class="interest-name">Storytelling & Narrative</span>
+      </div>
+      <div class="interest-item reveal reveal-delay-2">
+        <span class="interest-num">03</span>
+        <span class="interest-name">Media & Content Creation</span>
+      </div>
+      <div class="interest-item reveal reveal-delay-3">
+        <span class="interest-num">04</span>
+        <span class="interest-name">Consumer Psychology</span>
+      </div>
+      <div class="interest-item reveal reveal-delay-4">
+        <span class="interest-num">05</span>
+        <span class="interest-name">Visual Communication</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="interests-quote reveal">
+      <span class="quote-mark">"</span>
+      <blockquote>
+        Creativity is not just what you make — it's the bridge between an idea and the person it was always meant for.
+      </blockquote>
+      <cite>— Daya G Nair</cite>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label reveal">Education</p>
+  <h2 class="section-title reveal reveal-delay-1">
+    Academic<br><em>journey</em>
+  </h2>
+  <div class="edu-timeline">
+    <div class="edu-item reveal">
+      <div class="edu-dot"></div>
+      <div class="edu-body">
+        <p class="edu-year">2023 — Present</p>
+        <h3 class="edu-school">Vellore Institute of Technology</h3>
+        <p class="edu-degree">Bachelor of Business Administration (BBA)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect">
+  <p class="section-label reveal">Let's Talk</p>
+  <h2 class="section-title reveal reveal-delay-1">
+    Open to<br><em>opportunities</em>
+  </h2>
+  <p class="connect-sub reveal reveal-delay-2">
+    I'm actively seeking internships and opportunities in marketing, branding,
+    and media. Let's create something meaningful together.
+  </p>
+  <div class="connect-links reveal reveal-delay-3">
+    <a href="https://www.linkedin.com/in/daya-g-nair-0a6684340/" target="_blank" class="connect-link">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.23 0z"/></svg>
+      LinkedIn
+    </a>
+    <a href="mailto:daya@example.com" class="connect-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      Email Me
+    </a>
+    <a href="#" class="connect-link" id="resumeBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      Resume
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Daya G Nair</span>
+  <span>Built with intention ✦ Kanyakumari, TN</span>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 80);
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1)';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Resume button tooltip
+  document.getElementById('resumeBtn').addEventListener('click', e => {
+    e.preventDefault();
+    alert('Upload your resume PDF and link it here! Replace the href="#" with your resume link.');
+  });
+</script>
+</body>
+</html>
