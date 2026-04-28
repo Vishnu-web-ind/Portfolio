@@ -41,7 +41,6 @@ body {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: transform 0.08s ease;
-  mix-blend-mode: normal;
 }
 .cursor-ring {
   position: fixed;
@@ -111,7 +110,7 @@ nav {
 
 .nav-cta:hover { background: var(--gold2) !important; transform: translateY(-1px); }
 
-/* ── HERO ── */
+/* HERO */
 #hero {
   min-height: 100vh;
   display: flex;
@@ -122,12 +121,9 @@ nav {
   overflow: hidden;
 }
 
-/* squiggle decorations like the reference */
 .squig {
   position: absolute;
   color: var(--gold);
-  font-size: 52px;
-  line-height: 1;
   opacity: 0.9;
   animation: float 4s ease-in-out infinite;
   user-select: none;
@@ -135,8 +131,6 @@ nav {
 
 .squig-tl { top: 90px; left: 30px; animation-delay: 0s; }
 .squig-tr { top: 110px; right: 60px; animation-delay: 1s; transform: scaleX(-1); }
-.squig-bl { bottom: 120px; left: 56px; animation-delay: 2s; }
-.squig-br { bottom: 100px; right: 80px; animation-delay: 0.5s; }
 
 .dot-group {
   position: absolute;
@@ -147,11 +141,7 @@ nav {
 .dot-group.bl { bottom: 100px; left: 56px; }
 .dot-group.br { bottom: 100px; right: 56px; }
 
-.pdot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-}
-
+.pdot { width: 14px; height: 14px; border-radius: 50%; }
 .pdot.gold { background: var(--gold); }
 .pdot.white { background: white; }
 .pdot.outline { background: transparent; border: 2px solid var(--gold); }
@@ -161,7 +151,6 @@ nav {
   50% { transform: translateY(-10px) rotate(5deg); }
 }
 
-/* Hero eyebrow */
 .hero-eyebrow {
   display: flex;
   justify-content: space-between;
@@ -186,7 +175,6 @@ nav {
   color: rgba(255,255,255,0.45);
 }
 
-/* GIANT DISPLAY WORD */
 .hero-display {
   position: relative;
   line-height: 0.85;
@@ -202,7 +190,6 @@ nav {
   letter-spacing: 8px;
   color: var(--white);
   line-height: 0.88;
-  text-shadow: 0 0 80px rgba(255,255,255,0.04);
 }
 
 .display-overlay {
@@ -221,7 +208,6 @@ nav {
   pointer-events: none;
 }
 
-/* pill descriptor like reference */
 .hero-pill {
   display: inline-flex;
   align-items: center;
@@ -249,7 +235,6 @@ nav {
 
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
-/* HERO META ROW */
 .hero-meta {
   display: flex;
   align-items: center;
@@ -288,7 +273,6 @@ nav {
   background: rgba(255,255,255,0.15);
 }
 
-/* HERO BUTTONS */
 .hero-btns {
   display: flex;
   gap: 14px;
@@ -342,15 +326,7 @@ nav {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* DIVIDER LINE */
-.divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  margin: 0;
-}
-
-/* ── MARQUEE ── */
+/* MARQUEE */
 .marquee-wrap {
   background: var(--gold);
   padding: 14px 0;
@@ -385,7 +361,7 @@ nav {
   to { transform: translateX(-50%); }
 }
 
-/* ── SECTIONS SHARED ── */
+/* SECTIONS */
 section { position: relative; }
 
 .sec-wrap {
@@ -430,7 +406,7 @@ section { position: relative; }
   letter-spacing: 0;
 }
 
-/* ── ABOUT ── */
+/* ABOUT */
 #about { background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
 .about-grid {
@@ -501,7 +477,6 @@ section { position: relative; }
 .contact-val a { color: var(--gold); text-decoration: none; }
 .contact-val a:hover { text-decoration: underline; }
 
-/* TAGS */
 .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 
 .tag {
@@ -518,9 +493,7 @@ section { position: relative; }
 .tag.outline { border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.7); }
 .tag.outline-gold { border: 1px solid rgba(245,166,35,0.4); color: var(--gold); }
 
-/* ── EXPERIENCE ── */
-#experience {}
-
+/* EXPERIENCE */
 .exp-header-band {
   background: var(--gold);
   padding: 20px 56px;
@@ -627,7 +600,7 @@ section { position: relative; }
   background: var(--gold);
 }
 
-/* ── EDUCATION ── */
+/* EDUCATION */
 #education { background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
 .edu-grid {
@@ -695,7 +668,7 @@ section { position: relative; }
   letter-spacing: 0.1em;
 }
 
-/* ── CERTIFICATIONS ── */
+/* CERTIFICATIONS */
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -768,7 +741,7 @@ section { position: relative; }
   letter-spacing: 0.08em;
 }
 
-/* ── SKILLS ── */
+/* SKILLS */
 #skills { border-top: 1px solid var(--border); }
 
 .skills-layout {
@@ -799,32 +772,16 @@ section { position: relative; }
   gap: 10px;
 }
 
-.sg-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.sg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-.sg-divider {
-  height: 1px;
-  background: var(--border);
-  margin-bottom: 24px;
-}
+.sg-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
 
 .sk-rows { display: flex; flex-direction: column; gap: 16px; }
-
 .sk-row { display: flex; flex-direction: column; gap: 7px; }
 
-.sk-head {
-  display: flex;
-  justify-content: space-between;
-}
+.sk-head { display: flex; justify-content: space-between; }
 
-.sk-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.85);
-}
+.sk-name { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.85); }
 
 .sk-pct {
   font-family: 'Barlow Condensed', sans-serif;
@@ -848,7 +805,7 @@ section { position: relative; }
   transition: width 1.2s cubic-bezier(0.4,0,0.2,1) 0.3s;
 }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
   background: var(--dark);
   border-top: 1px solid var(--border);
@@ -863,8 +820,6 @@ footer {
   border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
 }
-
-.footer-left {}
 
 .footer-cta-label {
   font-family: 'Barlow Condensed', sans-serif;
@@ -935,6 +890,45 @@ footer {
   flex-shrink: 0;
 }
 
+/* DAYA + FREDDY FOOTER ANIMATION */
+#footer-anim {
+  background: #0a0a0a;
+  border-top: 2px solid var(--gold);
+  overflow: hidden;
+  position: relative;
+}
+
+#anim-ticker {
+  background: var(--gold);
+  padding: 6px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#anim-ticker-inner {
+  display: inline-block;
+  animation: tickscroll 16s linear infinite;
+}
+
+@keyframes tickscroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+.atick { display:inline-block; color:#0a0a0a; font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; margin:0 24px; }
+.atsep { color:rgba(0,0,0,0.4); margin:0 4px; }
+
+#anim-scene {
+  position: relative;
+  height: 140px;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+#anim-stars { position:absolute; inset:0; }
+.astar { position:absolute; border-radius:50%; }
+#anim-grass { position:absolute; bottom:30px; width:100%; height:10px; overflow:hidden; }
+.agrass { position:absolute; bottom:0; width:3px; border-radius:2px 2px 0 0; }
+#anim-ground { position:absolute; bottom:0; width:100%; height:32px; background:#111; border-top:1px solid #1f1f1f; }
+#anim-canvas { position:absolute; inset:0; cursor:pointer; }
+
 .footer-bottom {
   padding: 22px 56px;
   display: flex;
@@ -960,7 +954,7 @@ footer {
   color: rgba(255,255,255,0.2);
 }
 
-/* ── SCROLL REVEAL ── */
+/* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
@@ -998,7 +992,6 @@ footer {
 
 <!-- HERO -->
 <section id="hero">
-  <!-- Squiggles like reference -->
   <svg class="squig squig-tl" width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
     <path d="M5 40 Q20 5 35 25 Q50 45 65 10" stroke="#F5A623" stroke-width="4" stroke-linecap="round" fill="none"/>
   </svg>
@@ -1033,7 +1026,10 @@ footer {
   <div class="hero-meta">
     <span class="meta-badge">Available Now</span>
     <span class="meta-div"></span>
-    <span class="meta-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Trivandrum, Kerala</span></span>
+    <span class="meta-item">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Trivandrum, Kerala</span>
+    </span>
     <span class="meta-div"></span>
     <span class="meta-item">He / Him</span>
     <span class="meta-div"></span>
@@ -1041,8 +1037,7 @@ footer {
   </div>
 
   <div class="hero-btns">
-    <a href="Resue.pdf" target="_blank" class="btn-gold">
-         
+    <a href="Vishnu_Rajan__Resume_Junior_Linux_System_Administrator_.pdf" download="Vishnu_Rajan_Resume.pdf" class="btn-gold">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Download Resume
     </a>
@@ -1168,8 +1163,10 @@ footer {
   </div>
 </section>
 
-<section id="experience">
+<!-- EXPERIENCE 2 -->
+<section>
   <div class="exp-header-band">
+    <span class="exp-band-title">SECURITY RESEARCH</span>
     <span class="exp-band-num">02 / 05</span>
   </div>
   <div class="sec-wrap" style="padding-top:48px;">
@@ -1177,10 +1174,9 @@ footer {
       <div class="exp-top">
         <div>
           <div class="exp-co">VERBAT TECHNOLOGIES</div>
-          <div class="exp-role-text">WEB APPLICATION SECURITY — verbat.com
-Independent Security Research · 2026 · Open Bug Bounty (OBB-4097375)</div>
+          <div class="exp-role-text">Web Application Security — verbat.com · Independent Security Research · 2026 · Open Bug Bounty (OBB-4097375)</div>
         </div>
-        <div class="exp-date-badge">Present · Trivandrum</div>
+        <div class="exp-date-badge">2026 · Trivandrum</div>
       </div>
       <ul class="exp-list">
         <li>Conducted a comprehensive security audit of a production Laravel 8 web application, identifying multiple Improper Access Control vulnerabilities (CWE-284) across critical endpoints</li>
@@ -1189,7 +1185,16 @@ Independent Security Research · 2026 · Open Bug Bounty (OBB-4097375)</div>
         <li>Uncovered exposed composer.json revealing end-of-life dependencies including Laravel 8, Ignition 2.5, and Guzzle 7.0 — carrying known CVEs for RCE, SSRF, and authentication bypass</li>
         <li>Responsibly disclosed all findings through Open Bug Bounty platform, demonstrating ethical security research practices and real-world vulnerability assessment skills</li>
       </ul>
+      <div class="tag-cloud" style="margin-top:24px;">
+        <span class="tag outline-gold">Laravel</span>
+        <span class="tag outline-gold">Bug Bounty</span>
+        <span class="tag outline">CVE-2021-3129</span>
+        <span class="tag outline">CWE-284</span>
+        <span class="tag outline">Pen Testing</span>
+        <span class="tag outline">OWASP</span>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- EDUCATION -->
@@ -1234,7 +1239,7 @@ Independent Security Research · 2026 · Open Bug Bounty (OBB-4097375)</div>
     </div>
 
     <!-- CERTS -->
-    <div style="margin-top: 64px;">
+    <div style="margin-top:64px;">
       <div class="sec-label reveal">Licenses & Certifications</div>
       <div class="certs-grid">
         <div class="cert-card reveal">
@@ -1324,11 +1329,11 @@ Independent Security Research · 2026 · Open Bug Bounty (OBB-4097375)</div>
       <div class="footer-big-text">READY TO<br>WORK <em>together?</em></div>
     </div>
     <div class="footer-right reveal">
-      <a href="mailto:vishnudevagiri@gmail.com" class="footer-btn fb-gold">
-        <span>vishnudevagiri@gmail.com</span>
+      <a href="mailto:vishnudevagiri303@gmail.com" class="footer-btn fb-gold">
+        <span>vishnudevagiri303@gmail.com</span>
         <div class="fb-arr"><svg width="11" height="11" fill="none" stroke="black" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></div>
       </a>
-      <a href="Resume.pdf" target="_blank" class="footer-btn fb-ghost">
+      <a href="Vishnu_Rajan__Resume_Junior_Linux_System_Administrator_.pdf" download="Vishnu_Rajan_Resume.pdf" class="footer-btn fb-ghost">
         <span>Download Resume PDF</span>
         <div class="fb-arr"><svg width="11" height="11" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
       </a>
@@ -1338,10 +1343,225 @@ Independent Security Research · 2026 · Open Bug Bounty (OBB-4097375)</div>
       </a>
     </div>
   </div>
+
+  <!-- DAYA + FREDDY ANIMATION -->
+  <div id="footer-anim">
+    <div id="anim-ticker">
+      <div id="anim-ticker-inner">
+        <span class="atick">VISHNU RAJAN</span><span class="atsep">—</span>
+        <span class="atick">SOC ANALYST</span><span class="atsep">—</span>
+        <span class="atick">CYBERSECURITY</span><span class="atsep">—</span>
+        <span class="atick">THREAT INTELLIGENCE</span><span class="atsep">—</span>
+        <span class="atick">NETWORK SECURITY</span><span class="atsep">—</span>
+        <span class="atick">INCIDENT RESPONSE</span><span class="atsep">—</span>
+        <span class="atick">SIEM & SPLUNK</span><span class="atsep">—</span>
+        <span class="atick">VISHNU RAJAN</span><span class="atsep">—</span>
+        <span class="atick">SOC ANALYST</span><span class="atsep">—</span>
+        <span class="atick">CYBERSECURITY</span><span class="atsep">—</span>
+        <span class="atick">THREAT INTELLIGENCE</span><span class="atsep">—</span>
+        <span class="atick">NETWORK SECURITY</span><span class="atsep">—</span>
+        <span class="atick">INCIDENT RESPONSE</span><span class="atsep">—</span>
+        <span class="atick">SIEM & SPLUNK</span><span class="atsep">—</span>
+      </div>
+    </div>
+    <div id="anim-scene">
+      <div id="anim-stars"></div>
+      <div id="anim-grass"></div>
+      <div id="anim-ground"></div>
+      <canvas id="anim-canvas" width="680" height="140"></canvas>
+    </div>
+  </div>
+
   <div class="footer-bottom">
     <div class="footer-logo-txt">VISHNU <span>RAJAN</span></div>
-    <div class="footer-copy">© 2025 · Trivandrum, Kerala · Built with craft</div>
+    <div class="footer-copy">© 2026 · vishnuinfo.xyz · Trivandrum, Kerala · Built with craft</div>
   </div>
+</footer>
+
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cur');
+const ring = document.getElementById('ring');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 80);
+});
+
+/* ── SCROLL REVEAL ── */
+const reveals = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12 });
+reveals.forEach(r => revObs.observe(r));
+
+/* ── SKILL BARS ── */
+const fills = document.querySelectorAll('.sk-fill');
+const skillObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.style.width = e.target.dataset.w + '%';
+  });
+}, { threshold: 0.3 });
+fills.forEach(f => skillObs.observe(f));
+
+/* ── DAYA + FREDDY ANIMATION ── */
+const canvas = document.getElementById('anim-canvas');
+const ctx = canvas.getContext('2d');
+const W = 680, H = 140, GY = 106;
+
+function resizeCanvas(){
+  canvas.width = canvas.parentElement.getBoundingClientRect().width || W;
+  canvas.style.width = '100%';
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// Stars
+const starsEl = document.getElementById('anim-stars');
+for(let i=0;i<45;i++){
+  const s=document.createElement('div');
+  const sz=Math.random()<0.2?2:1;
+  const gold=Math.random()<0.15;
+  s.style.cssText=`position:absolute;border-radius:50%;width:${sz}px;height:${sz}px;background:${gold?'#F5A623':'#fff'};top:${5+Math.random()*65}%;left:${Math.random()*100}%;opacity:${0.15+Math.random()*0.45}`;
+  starsEl.appendChild(s);
+}
+
+// Grass
+const grassEl = document.getElementById('anim-grass');
+for(let i=0;i<320;i++){
+  const b=document.createElement('div');
+  const gold=Math.random()<0.25;
+  b.style.cssText=`position:absolute;bottom:0;width:3px;border-radius:2px 2px 0 0;left:${i*2.2}px;height:${3+Math.random()*7}px;background:${gold?'#F5A623':'#1c3a08'}`;
+  grassEl.appendChild(b);
+}
+
+const GOLD='#F5A623', DARK='#0a0a0a', SKIN='#c68642';
+let x=60, frame=0, speed=1.8;
+let jumping=false, jV=0, jY=0, happyT=0, bt=0;
+
+canvas.addEventListener('click', ()=>{
+  if(!jumping){ jumping=true; jV=-9; happyT=35; }
+});
+
+function drawDaya(c, sx, sy){
+  const la=Math.sin(frame)*0.45, aa=Math.sin(frame+Math.PI)*0.35;
+  const bob=jumping?0:Math.sin(bt)*1.2;
+  c.save(); c.translate(sx, sy+bob);
+  c.fillStyle='#8e44ad'; c.beginPath(); c.roundRect(-9,-28,18,18,3); c.fill();
+  c.fillStyle='#2a1a00';
+  c.beginPath(); c.roundRect(-8,-8,7,16,2); c.fill();
+  c.beginPath(); c.roundRect(1,-8,7,16,2); c.fill();
+  c.save(); c.translate(-9,-22); c.rotate(-aa-0.3);
+  c.fillStyle='#8e44ad'; c.beginPath(); c.roundRect(-3,0,6,13,3); c.fill();
+  c.fillStyle=SKIN; c.beginPath(); c.roundRect(-2,12,5,6,2); c.fill(); c.restore();
+  c.save(); c.translate(9,-22); c.rotate(aa+0.15);
+  c.fillStyle='#8e44ad'; c.beginPath(); c.roundRect(-3,0,6,13,3); c.fill();
+  c.fillStyle=SKIN; c.beginPath(); c.roundRect(-2,12,5,6,2); c.fill(); c.restore();
+  c.save(); c.translate(-5,-8); c.rotate(la);
+  c.fillStyle='#2a1a00'; c.beginPath(); c.roundRect(-3,0,6,15,2); c.fill();
+  c.fillStyle=GOLD; c.beginPath(); c.roundRect(-4,14,8,4,1); c.fill(); c.restore();
+  c.save(); c.translate(5,-8); c.rotate(-la);
+  c.fillStyle='#2a1a00'; c.beginPath(); c.roundRect(-3,0,6,15,2); c.fill();
+  c.fillStyle=GOLD; c.beginPath(); c.roundRect(-4,14,8,4,1); c.fill(); c.restore();
+  c.fillStyle=SKIN; c.beginPath(); c.arc(0,-38,10,0,Math.PI*2); c.fill();
+  c.fillStyle='#1a0800';
+  c.beginPath(); c.arc(0,-38,11,Math.PI,0); c.fill();
+  c.beginPath(); c.arc(-10,-32,5,0,Math.PI*2); c.fill();
+  c.beginPath(); c.arc(10,-32,5,0,Math.PI*2); c.fill();
+  c.fillStyle=GOLD;
+  c.beginPath(); c.arc(-10,-32,3,0,Math.PI*2); c.fill();
+  c.beginPath(); c.arc(10,-32,3,0,Math.PI*2); c.fill();
+  c.fillStyle=DARK;
+  c.beginPath(); c.arc(-3.5,-38,2,0,Math.PI*2); c.fill();
+  c.beginPath(); c.arc(3.5,-38,2,0,Math.PI*2); c.fill();
+  if(happyT>0){
+    c.fillStyle=GOLD;
+    c.beginPath(); c.arc(-4,-34,2,0,Math.PI*2); c.fill();
+    c.beginPath(); c.arc(4,-34,2,0,Math.PI*2); c.fill();
+    c.strokeStyle=GOLD; c.lineWidth=1.5;
+    c.beginPath(); c.arc(0,-33,4,0.1,Math.PI-0.1); c.stroke();
+  } else {
+    c.strokeStyle='#2a1a00'; c.lineWidth=1;
+    c.beginPath(); c.arc(0,-34,3,0.2,Math.PI-0.2); c.stroke();
+  }
+  c.fillStyle=GOLD; c.font='bold 9px Courier New';
+  c.textAlign='center'; c.fillText('Daya',0,-52);
+  c.restore();
+}
+
+function drawFreddy(c, sx, sy){
+  const ls=Math.sin(frame*1.1)*0.45, ta=Math.sin(frame*2.5)*0.7;
+  const bob=jumping?0:Math.sin(bt+0.5)*1.0;
+  c.save(); c.translate(sx, sy+bob);
+  c.fillStyle='#8B5E00'; c.beginPath(); c.roundRect(-18,-14,36,14,5); c.fill();
+  c.beginPath(); c.roundRect(-20,-24,20,14,6); c.fill();
+  [[-14,-14,ls],[-6,-14,-ls],[6,-14,ls],[14,-14,-ls]].forEach(([lx,ly,a])=>{
+    c.save(); c.translate(lx,ly); c.rotate(a);
+    c.fillStyle='#6a4400'; c.beginPath(); c.roundRect(-3,0,6,11,2); c.fill();
+    c.fillStyle=GOLD; c.beginPath(); c.roundRect(-3.5,10,7,4,1); c.fill();
+    c.restore();
+  });
+  c.save(); c.translate(18,-8); c.rotate(-ta-0.4);
+  c.fillStyle='#a07030'; c.beginPath(); c.roundRect(0,-3,14,5,4); c.fill(); c.restore();
+  c.fillStyle='#8B5E00'; c.beginPath(); c.arc(16,-20,6,0,Math.PI*2); c.fill();
+  c.fillStyle='#6a4400';
+  c.beginPath(); c.ellipse(12,-16,5,3,0.5,0,Math.PI*2); c.fill();
+  c.beginPath(); c.ellipse(20,-16,4,3,-0.4,0,Math.PI*2); c.fill();
+  c.fillStyle=DARK; c.beginPath(); c.arc(18,-21,1.8,0,Math.PI*2); c.fill();
+  c.fillStyle=GOLD; c.beginPath(); c.arc(18,-21,0.8,0,Math.PI*2); c.fill();
+  c.fillStyle='#ff9999'; c.beginPath(); c.ellipse(14,-14,4,3,0.2,0,Math.PI); c.fill();
+  c.fillStyle=GOLD; c.font='bold 9px Courier New';
+  c.textAlign='center'; c.fillText('Freddy',0,-30);
+  c.restore();
+}
+
+function drawRope(c, dayaX, dayaY, freddyX, freddyY){
+  const startX=dayaX+10, startY=dayaY-22;
+  const endX=freddyX-18, endY=freddyY-10;
+  const midX=(startX+endX)/2;
+  const midY=Math.max(startY,endY)+12+Math.sin(frame*0.8)*3;
+  c.strokeStyle='#c8a060'; c.lineWidth=2; c.lineCap='round';
+  c.beginPath(); c.moveTo(startX,startY); c.quadraticCurveTo(midX,midY,endX,endY); c.stroke();
+  c.fillStyle='#c8a060';
+  c.beginPath(); c.arc(startX,startY,3,0,Math.PI*2); c.fill();
+  c.beginPath(); c.arc(endX,endY,3,0,Math.PI*2); c.fill();
+}
+
+function drawFireflies(c, t){
+  for(let i=0;i<6;i++){
+    const fx=((t*0.3+i*113)%W);
+    const fy=20+Math.sin(t*0.05+i)*25;
+    const alpha=Math.abs(Math.sin(t*0.08+i*1.3));
+    c.fillStyle=`rgba(245,166,35,${alpha*0.8})`;
+    c.beginPath(); c.arc(fx/W*canvas.width,fy,2,0,Math.PI*2); c.fill();
+    c.fillStyle=`rgba(255,210,80,${alpha*0.2})`;
+    c.beginPath(); c.arc(fx/W*canvas.width,fy,6,0,Math.PI*2); c.fill();
+  }
+}
+
+let tick=0;
+function loop(){
+  tick++;
+  const cw=canvas.width;
+  x+=speed;
+  if(x>cw+80) x=-80;
+  frame+=0.18; bt+=0.07;
+  if(happyT>0) happyT--;
+  if(jumping){ jY+=jV; jV+=0.55; if(jY>=0){jY=0;jumping=false;} }
+  ctx.clearRect(0,0,cw,H);
+  drawFireflies(ctx,tick);
+  const scale=cw/W;
+  const dayaX=(x-44)*scale, freddyX=x*scale;
+  const sy=GY+jY+(jumping?0:Math.sin(bt)*1.2);
+  drawRope(ctx,dayaX,sy,freddyX,sy);
+  drawFreddy(ctx,freddyX,sy);
+  drawDaya(ctx,dayaX,sy);
+  requestAnimationFrame(loop);
+}
+loop();
 </script>
 </body>
 </html>
