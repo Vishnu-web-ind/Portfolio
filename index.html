@@ -962,6 +962,58 @@ footer {
   .footer-hero { padding: 56px 24px; flex-direction: column; }
   .footer-bottom { padding: 18px 24px; }
 }
+
+@media (max-width: 768px) {
+  nav { padding: 0 16px; height: 56px; }
+  .nav-links { gap: 16px; }
+  .nav-links li { display: none; }
+  .nav-links li:last-child { display: block; }
+
+  #hero { padding: 70px 16px 0; }
+  .display-word { font-size: clamp(60px, 18vw, 100px); letter-spacing: 4px; }
+  .display-overlay { font-size: clamp(42px, 13vw, 80px); transform: translate(-28%, -48%); }
+
+  .hero-pill { font-size: 12px; padding: 8px 18px; }
+  .hero-meta { gap: 12px; }
+  .meta-div { display: none; }
+  .meta-item { font-size: 12px; }
+  .hero-btns { flex-direction: column; gap: 10px; padding-bottom: 48px; }
+  .btn-gold, .btn-ghost { width: 100%; justify-content: center; padding: 13px 24px; }
+
+  .sec-wrap { padding: 50px 16px; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .sec-title { font-size: clamp(36px, 10vw, 56px); }
+
+  .exp-header-band { padding: 14px 16px; }
+  .exp-band-title { font-size: 20px; }
+  .exp-card { padding: 24px 20px; }
+  .exp-co { font-size: 26px; }
+
+  .edu-grid { grid-template-columns: 1fr; gap: 12px; }
+  .certs-grid { grid-template-columns: 1fr; gap: 12px; }
+  .skills-layout { grid-template-columns: 1fr; gap: 16px; }
+
+  .footer-hero { padding: 40px 16px; gap: 28px; }
+  .footer-big-text { font-size: clamp(36px, 10vw, 56px); }
+  .footer-right { min-width: unset; width: 100%; }
+  .footer-btn { font-size: 12px; padding: 13px 18px; }
+  .footer-bottom { padding: 16px; flex-direction: column; text-align: center; gap: 6px; }
+
+  .about-body { font-size: 14px; }
+  .contact-card { padding: 12px 14px; }
+  .exp-list li { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .display-word { font-size: 15vw; letter-spacing: 2px; }
+  .display-overlay { font-size: 11vw; }
+  .hero-pill { font-size: 11px; padding: 7px 14px; flex-wrap: wrap; }
+  .tag-cloud { gap: 6px; }
+  .tag { font-size: 10px; padding: 5px 10px; }
+  .edu-card { padding: 24px 20px; }
+  .cert-card { padding: 24px 20px; }
+  .skill-group { padding: 24px 20px; }
+}
 </style>
 </head>
 <body>
