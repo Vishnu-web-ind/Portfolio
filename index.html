@@ -121,6 +121,71 @@ nav {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  #hero {
+    min-height: unset !important;
+    height: auto !important;
+    padding: 90px 16px 40px !important;
+    justify-content: flex-start !important;
+  }
+
+  .hero-display {
+    margin-bottom: 16px !important;
+  }
+
+  .display-word {
+    font-size: 18vw !important;
+    letter-spacing: 2px !important;
+    line-height: 1 !important;
+  }
+
+  .display-overlay {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    display: block !important;
+    font-size: 14vw !important;
+    margin-top: -10px !important;
+    animation: none !important;
+  }
+
+  .hero-eyebrow {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-pill {
+    font-size: 11px !important;
+    padding: 7px 14px !important;
+    white-space: normal !important;
+    margin-bottom: 24px !important;
+  }
+
+  .hero-meta {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-bottom: 28px !important;
+  }
+
+  .meta-div { display: none !important; }
+
+  .hero-btns {
+    flex-direction: column !important;
+    padding-bottom: 40px !important;
+  }
+
+  .btn-gold, .btn-ghost {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .dot-group { display: none !important; }
+  .squig { display: none !important; }
+}
+
 .squig {
   position: absolute;
   color: var(--gold);
