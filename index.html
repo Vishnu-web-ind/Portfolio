@@ -1456,19 +1456,6 @@ function drawRope(c, dayaX, dayaY, freddyX, freddyY){
   c.fillStyle='#c8a060';
   c.beginPath(); c.arc(startX,startY,3,0,Math.PI*2); c.fill();
   c.beginPath(); c.arc(endX,endY,3,0,Math.PI*2); c.fill();
-}
-
-function drawFireflies(c, t){
-  for(let i=0;i<6;i++){
-    const fx=((t*0.3+i*113)%W);
-    const fy=20+Math.sin(t*0.05+i)*25;
-    const alpha=Math.abs(Math.sin(t*0.08+i*1.3));
-    c.fillStyle=`rgba(245,166,35,${alpha*0.8})`;
-    c.beginPath(); c.arc(fx/W*canvas.width,fy,2,0,Math.PI*2); c.fill();
-    c.fillStyle=`rgba(255,210,80,${alpha*0.2})`;
-    c.beginPath(); c.arc(fx/W*canvas.width,fy,6,0,Math.PI*2); c.fill();
-  }
-}
 
 let tick=0;
 function loop(){
